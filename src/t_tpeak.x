@@ -106,7 +106,7 @@ bool	bunk, isobj
 int	objflag
 
 int	clgeti(), clgcur(), opentab(), center_one(), nearest()
-int	strmatch(), open(), getline(), sscan(), nscan()
+int	strmatch(), open(), getline(), nscan()
 real	clgetr()
 bool	clgetb(), tp_colon()
 
@@ -176,7 +176,7 @@ begin
 	    } else {
 		while (getline (ob, Memc[buf]) != EOF)
 		    if (strmatch (Memc[buf], "^#\#") == 0)  {	# comment?
-			junk = sscan (Memc[buf])
+			call sscan (Memc[buf])
 			    call gargr (cx)
 			    call gargr (cy)
 			    call gargi (index)
@@ -1082,8 +1082,6 @@ pointer	cp[NUM_COLS]		#O array of column pointers
 
 pointer	sp, buf, pp
 char	colname[SZ_COLNAME, NUM_COLS]
-
-int	i
 
 pointer	clopset(), tbtopn()
 int	tbpsta()
