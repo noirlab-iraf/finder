@@ -23,9 +23,9 @@ char	tabfile[SZ_FNAME], seqfile[SZ_FNAME]
 int	fits_fd, istat, stat, pos1, pos2, ntab, nch
 int	rft_read_header(), mtopen(), strlen()
 int	tbtopn(), rtb_read_header(), gstrmatch()
-int	open(), gi_gstfval()
+int	open(), gi_gstfval(), fnroot()
 int	stridx(), id1, id2, tbpsta()
-int	nread, fd_usr, ncols
+int	nread, fd_usr, ncols, junk
 
 pointer	im, imt, sp, fits, tp, fn
 
@@ -223,7 +223,7 @@ frmxtn_	call salloc (fn, SZ_FNAME, TY_CHAR)
 		call frename (Memc[fn], tabfile)
 
 		if (short_header == YES ) {
-		    call fnroot (tabfile, nroot, SZ_FNAME)
+		    junk = fnroot (tabfile, nroot, SZ_FNAME)
 		    call printf("%17t renamed to %s.tab\n")
 		    call pargstr(nroot)
 		}
